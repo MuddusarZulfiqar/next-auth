@@ -10,7 +10,7 @@ export default function index() {
   useEffect(()=>{
     const getAllBlogs = async ()=>{
       const res = await request.get('/app/blogs');
-      console.log(res);
+      console.log(res); 
     }
     getAllBlogs();
   },[])
