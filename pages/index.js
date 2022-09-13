@@ -2,8 +2,11 @@ import { Button } from "@mui/material";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
-
+import useInput from "@/hooks/useInput";
 export default function Home() {
+  const maxLen = (value) => value.length <= 10;
+  const minLength = (value) => value.length >= 5;
+  const name = useInput("Mr.", maxLen);
   return (
     <div className={styles.container}>
       <Head>
@@ -19,7 +22,8 @@ export default function Home() {
         Get started by editing{" "}
         <code className={styles.code}>pages/index.js</code>
       </p>
-
+      <input placeholder="Name" {...name} />
+      <Button variant="contained">Hello World</Button>
       <div className={styles.grid}>
         <a href="https://nextjs.org/docs" className={styles.card}>
           <h2>Documentation &rarr;</h2>
